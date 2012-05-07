@@ -1,7 +1,9 @@
 # linux-clicky
+
 Inspired by colszowka's [linux-typewritter](https://github.com/colszowka/linux-typewriter) script, linux-clicky produces a sound everytime you press a key on your keyboard. This might be useful for screensharing or a screencast if you want to have some type of feedback while you type.
 
 ## Usage
+
 Run the main.py file and it will automaticly detect your keyboards and start *clickytty click*.
 
 **Because the way the script detects the keypresses (by tying itself to the event file in Linux, just like a keylogger would do) it requires root access**
@@ -28,9 +30,13 @@ If you are worried about malicious code, the script is pretty small you can easi
 - SoX (in debian based systems install by typing "sudo apt-get install sox");
 
 ## Future
+
 This is a very simple script therefore it's probably not gonna have a lot of focus on development, but I would love to add some more soundbanks into it, especially from mechanical keyboards. If you are interested in providing some  recordings feel free to contact me.
 
 ## License
+
 The code is under the supplied MIT license, therefore it's completely open source.
+
+evdev.py (by Micah Dowty <micah@navi.cx>) is included under the terms of the GPLv2. Thanks to Micah Dowty for writing this module since without it this script would not be possible, or at least not as easy to code.
 
 The keyboard sounds were extracted from ['keyboard-typing’ by Anton](http://www.freesound.org/samplesViewSingle.php?id=137) at Freesound
