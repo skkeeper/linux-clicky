@@ -4,7 +4,7 @@ Inspired by colszowka's [linux-typewritter](https://github.com/colszowka/linux-t
 ## Usage
 Run the main.py file and it will automaticly detect your keyboards and start *clickytty click*.
 
-** Because the way the script detects the keypresses (by tying itself to the event file in Linux, just like a keylogger would do) it requires root access **
+**Because the way the script detects the keypresses (by tying itself to the event file in Linux, just like a keylogger would do) it requires root access**
 
 If you are worried about malicious code, the script is pretty small you can easily read it in five minutes, so feel free to.
 
