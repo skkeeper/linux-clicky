@@ -7,6 +7,7 @@ Inspired by colszowka's [linux-typewritter](https://github.com/colszowka/linux-t
 - Supports basic volume control;
 - Uses threads to avoid problems with quick typing;
 - Produces the sound on key down, this way the sound doesn't loop if you keep the key pressed.
+- It's possible to diversify the sound of some keys. By default the SPACE and ENTER key have a specific sound.
 
 
 ## Dependencies
