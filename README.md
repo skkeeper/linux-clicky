@@ -1,5 +1,12 @@
 # linux-clicky
-Inspired by colszowka's [linux-typewritter](https://github.com/colszowka/linux-typewriter) script, linux-clicky produces a sound everytime you press a key on your keyboard. This might be usefull for screensharing or a screencast if you want to have some type of feedback while you type.
+Inspired by colszowka's [linux-typewritter](https://github.com/colszowka/linux-typewriter) script, linux-clicky produces a sound everytime you press a key on your keyboard. This might be useful for screensharing or a screencast if you want to have some type of feedback while you type.
+
+## Usage
+Run the main.py file and it will automaticly detect your keyboards and start *clickytty click*.
+
+** Because the way the script detects the keypresses (by tying itself to the event file in Linux, just like a keylogger would do) it requires root access **
+
+If you are worried about malicious code, the script is pretty small you can easily read it in five minutes, so feel free to.
 
 ## Advantages over the original script:
 
@@ -7,8 +14,12 @@ Inspired by colszowka's [linux-typewritter](https://github.com/colszowka/linux-t
 - Supports basic volume control;
 - Uses threads to avoid problems with quick typing;
 - Produces the sound on key down, this way the sound doesn't loop if you keep the key pressed.
-- It's possible to diversify the sound of some keys. By default the SPACE and ENTER key have a specific sound.
+- It's possible to diversify the sound of some keys. By default the SPACE and ENTER key have a specific sound. In the future, if more soundbanks are added, more special sounds for specific keys can also be easily added.
 
+## Disadvantages
+
+- Requires root access
+- It was coded while I was taking a break from another project, so expect a bit of bad code here and there (feel free to submit patches).
 
 ## Dependencies
 
