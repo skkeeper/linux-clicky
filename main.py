@@ -8,6 +8,16 @@ from third_party.evdev import DeviceGroup
 from linux_clicky.play_sound import PlaySound
 from linux_clicky.detect_keyboards import detect_keyboards
 from argparse import ArgumentParser
+from signal import signal, SIGINT, pause
+from sys import exit
+
+
+# Handle CTRL+C
+def signal_handler(signal, frame):
+    print '\033[1;32mCTRL + C Detected. Exiting ...'
+    print 'Ignore any errors after this message.\033[1;m'
+    exit(0)
+signal(SIGINT, signal_handler)
 
 parser = ArgumentParser(description='linux-clicky')
 parser.add_argument('-v', action="store", default=1, dest='volume')
