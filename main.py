@@ -8,7 +8,7 @@ from third_party.evdev import DeviceGroup
 from linux_clicky.play_sound import PlaySound
 from linux_clicky.detect_keyboards import detect_keyboards
 from argparse import ArgumentParser
-from signal import signal, SIGINT, pause
+from signal import signal, SIGINT
 from sys import exit
 
 
