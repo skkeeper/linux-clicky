@@ -1,5 +1,9 @@
+#!/usr/bin/python
+# -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
+# Author: Fábio André Damas <skkeeper at gmail dot com>
+
 from threading import Thread
-from subprocess import Popen, PIPE, STDOUT
+from subprocess import Popen, PIPE
 
 
 class PlaySound(Thread):
@@ -10,6 +14,9 @@ class PlaySound(Thread):
 
   def run(self):
     cmd = 'play -v ' + self.volume + ' ' + self.filename
-    p = Popen(cmd, shell=True, stdin=PIPE, stdout=PIPE,
-      stderr=STDOUT, close_fds=True)
-    p.stdout.read()
+    p = Popen(cmd, shell=True, stderr=PIPE, close_fds=True)
+    # TODO: Test if limits the number of clicks
+    p.wait()
+    if p.returncode != 0:
+      print '\033[1;31mWe found a error with SoX, did you install it?\033[1;m'
+      p.stderr.read()

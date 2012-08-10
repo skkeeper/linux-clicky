@@ -1,4 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/python
+# -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
+# Author: Fábio André Damas <skkeeper at gmail dot com>
 
 from os import listdir, getcwd
 from random import choice
