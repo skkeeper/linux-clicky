@@ -7,7 +7,7 @@ from random import choice
 from third_party.evdev import DeviceGroup
 from linux_clicky.play_sound import PlaySound
 from linux_clicky.detect_keyboards import detect_keyboards
-from argparse import ArgumentParser
+from optparse import OptionParser
 from signal import signal, SIGINT
 from sys import exit
 
@@ -19,10 +19,15 @@ def signal_handler(signal, frame):
     exit(0)
 signal(SIGINT, signal_handler)
 
-parser = ArgumentParser(description='linux-clicky')
-parser.add_argument('-v', action="store", default=1, dest='volume')
+# Handle arguments
+parser = OptionParser()
+parser.add_option('-v', '--volume', action="store", dest='volume',
+    help="sets the volume of the clicks, anything above 1 will increase the " +
+    "volume, and anything less will decrease it. Don't use numbers bigger " +
+    "than 2")
 
-results = parser.parse_args()
+parser.set_defaults(volume=1)
+(options, args) = parser.parse_args()
 
 # Get a list of sound files
 sounds = listdir(getcwd() + '/sounds')
@@ -37,7 +42,7 @@ for sound in sounds:
         sound_tmp["click"].append(sound)
 sounds = sound_tmp
 # Volume: Negative to lower the volume
-volume = str(results.volume)
+volume = str(options.volume)
 
 dev = DeviceGroup(detect_keyboards())
 while 1:
