@@ -21,7 +21,8 @@ signal(SIGINT, signal_handler)
 
 # Handle arguments
 parser = OptionParser()
-parser.add_option('-v', '--volume', action="store", dest='volume',
+parser.add_option(
+    '-v', '--volume', action="store", dest='volume',
     help="sets the volume of the clicks, anything above 1 will increase the " +
     "volume, and anything less will decrease it. Don't use numbers bigger " +
     "than 2")
