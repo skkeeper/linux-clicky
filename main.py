@@ -45,6 +45,7 @@ sounds = sound_tmp
 # Volume: Negative to lower the volume
 volume = str(options.volume)
 
+key_sound_pair = dict()
 dev = DeviceGroup(detect_keyboards())
 while 1:
     event = dev.next_event()
@@ -57,6 +58,8 @@ while 1:
                 elif event.code == "KEY_SPACE":
                     filename = getcwd() + '/sounds/' + sounds["space"]
                 else:
+                    if event.code not in key_sound_pair:
+                        key_sound_pair[event.code] = choice(sounds["click"])
                     filename = getcwd() + '/sounds/' +\
-                        choice(sounds["click"])
+                        key_sound_pair[event.code]
                 PlaySound(filename, volume).start()
