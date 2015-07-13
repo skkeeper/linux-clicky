@@ -21,7 +21,8 @@ signal(SIGINT, signal_handler)
 
 # Handle arguments
 parser = OptionParser()
-parser.add_option('-v', '--volume', action="store", dest='volume',
+parser.add_option(
+    '-v', '--volume', action="store", dest='volume',
     help="sets the volume of the clicks, anything above 1 will increase the " +
     "volume, and anything less will decrease it. Don't use numbers bigger " +
     "than 2")
@@ -44,6 +45,7 @@ sounds = sound_tmp
 # Volume: Negative to lower the volume
 volume = str(options.volume)
 
+key_sound_pair = dict()
 dev = DeviceGroup(detect_keyboards())
 while 1:
     event = dev.next_event()
@@ -56,6 +58,8 @@ while 1:
                 elif event.code == "KEY_SPACE":
                     filename = getcwd() + '/sounds/' + sounds["space"]
                 else:
+                    if event.code not in key_sound_pair:
+                        key_sound_pair[event.code] = choice(sounds["click"])
                     filename = getcwd() + '/sounds/' +\
-                        choice(sounds["click"])
+                        key_sound_pair[event.code]
                 PlaySound(filename, volume).start()
