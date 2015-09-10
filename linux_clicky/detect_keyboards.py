@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python2
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 2 -*-
 # Author: Fábio André Damas <skkeeper at gmail dot com>
 
